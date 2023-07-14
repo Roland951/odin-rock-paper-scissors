@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    console.log("Rock-paper-scissors game! The game is to last five rounds. May the best semi-sentient being win!");
+
+    let userScore = 0;
+    let computerScore = 0;
+
+    const getUserChoice = userInput => {
+    userInput = prompt("Do your worst, human!");
+
+    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
+        return userInput;
+    } else {
+        console.log("Error! Invalid user input.");
+    }
+    };
+
+    function getComputerChoice() {
+    const randomNumber = Math.floor(Math.random() * 3);
+
+    switch (randomNumber) {
+        case 0:
+            return 'rock';
+            break;
+        case 1:
+            return 'paper';
+            break;
+        case 2:
+            return 'scissors';
+            break;
+    }
+    };
+
+    function determineWinner(userChoice, computerChoice) {
+
+        if (userChoice === 'bomb') {
+            userScore += 1;
+            return 'The user won';            
+        }
+
+        if (userChoice === computerChoice) {
+            return 'The game was a tie';
+        }
+
+        if (userChoice === 'paper') {
+        if (computerChoice === 'rock') {
+            userScore += 1;
+            return 'The user won';
+        }
+        if (computerChoice === 'scissors') {
+            computerScore++;
+            return 'The computer won';            
+        }
+        }
+
+        if (userChoice === 'rock') {
+        if (computerChoice === 'scissors') {
+            userScore++;
+            return 'The user won';            
+        }
+        if (computerChoice === 'paper') {
+            computerScore++;
+            return 'The computer won';            
+        }
+        }
+
+        if (userChoice === 'scissors') {
+        if (computerChoice === 'paper') {
+            userScore++;
+            return 'The user won';            
+        }
+        if (computerChoice === 'rock') {
+            computerScore++;
+            return 'The computer won';            
+        }
+        }
+    };
+
+    function playRound() {
+    userChoice = getUserChoice();
+    computerChoice = getComputerChoice();
+    console.log('You threw: ' + userChoice);
+    console.log('The computer threw: ' + computerChoice);
+    console.log(determineWinner(userChoice, computerChoice));
+    };
+
+    function game() {
+
+        for (let i = 0; i < 5; i++) {
+            playRound();
+        }
+
+        if (userScore > computerScore) {
+            console.log("A pitiful victory.");
+        } else {
+            console.log("I won, human!");
+        }
+    }
+
+    game();
+
+    </script>    
+</body>
+</html>
