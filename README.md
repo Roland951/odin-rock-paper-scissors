@@ -1,1 +1,1 @@
-# odin-rock-paper-scissors
+This is a sample of a rock-paper-scissors game and the third exercise following The Odin Project course. Skills: Javascript.
