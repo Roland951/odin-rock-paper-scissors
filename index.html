@@ -3,110 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
+    <div class="rpsTitle">
+        <h1>Rock Paper Scissors</h1>
+    </div>
 
-    console.log("Rock-paper-scissors game! The game is to last five rounds. May the best semi-sentient being win!");
+    <div class="userSelections"> 
+        <h3>Select either Rock, Paper, or Scissors</h3>
+        <button id="rockButton" class="userButtons">Rock</button>
+        <button id="paperButton" class="userButtons">Paper</button>
+        <button id="scissorsButton" class="userButtons">Scissors</button>
+    </div>
 
-    let userScore = 0;
-    let computerScore = 0;
+    <div class="gameResults">
+        <div id="displayOutcome"></div>
+        <h3><u>Results</u></h3>
+        <p id="compScore">Computer Score: 0</p>
+        <p id="playerScore">Player Score: 0</p>
+    </div>
 
-    const getUserChoice = userInput => {
-    userInput = prompt("Do your worst, human!");
-
-    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
-        return userInput;
-    } else {
-        console.log("Error! Invalid user input.");
-    }
-    };
-
-    function getComputerChoice() {
-    const randomNumber = Math.floor(Math.random() * 3);
-
-    switch (randomNumber) {
-        case 0:
-            return 'rock';
-            break;
-        case 1:
-            return 'paper';
-            break;
-        case 2:
-            return 'scissors';
-            break;
-    }
-    };
-
-    function determineWinner(userChoice, computerChoice) {
-
-        if (userChoice === 'bomb') {
-            userScore += 1;
-            return 'The user won';            
-        }
-
-        if (userChoice === computerChoice) {
-            return 'The game was a tie';
-        }
-
-        if (userChoice === 'paper') {
-        if (computerChoice === 'rock') {
-            userScore += 1;
-            return 'The user won';
-        }
-        if (computerChoice === 'scissors') {
-            computerScore++;
-            return 'The computer won';            
-        }
-        }
-
-        if (userChoice === 'rock') {
-        if (computerChoice === 'scissors') {
-            userScore++;
-            return 'The user won';            
-        }
-        if (computerChoice === 'paper') {
-            computerScore++;
-            return 'The computer won';            
-        }
-        }
-
-        if (userChoice === 'scissors') {
-        if (computerChoice === 'paper') {
-            userScore++;
-            return 'The user won';            
-        }
-        if (computerChoice === 'rock') {
-            computerScore++;
-            return 'The computer won';            
-        }
-        }
-    };
-
-    function playRound() {
-    userChoice = getUserChoice();
-    computerChoice = getComputerChoice();
-    console.log('You threw: ' + userChoice);
-    console.log('The computer threw: ' + computerChoice);
-    console.log(determineWinner(userChoice, computerChoice));
-    };
-
-    function game() {
-
-        for (let i = 0; i < 5; i++) {
-            playRound();
-        }
-
-        if (userScore > computerScore) {
-            console.log("A pitiful victory.");
-        } else {
-            console.log("I won, human!");
-        }
-    }
-
-    game();
-
-    </script>    
 </body>
 </html>
+
+<script src="javascript.js"></script>
